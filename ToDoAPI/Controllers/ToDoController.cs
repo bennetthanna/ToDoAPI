@@ -20,5 +20,22 @@ namespace ToDoAPI.Controllers
                 _context.SaveChanges();
             }
         }
+
+        [HttpGet]
+        public IEnumerable<ToDoItem> GetAll()
+        {
+            return _context.ToDoItems.ToList();
+        }
+
+        [HttpGet("{id}", Name = "GetToDo")]
+        public IActionResult GetById(long id)
+        {
+            var item = _context.ToDoItems.FirstOrDefault(t => t.Id == id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return new ObjectResult(item);
+        }
     }
 }
