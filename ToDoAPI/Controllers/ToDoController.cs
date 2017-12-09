@@ -73,5 +73,19 @@ namespace ToDoAPI.Controllers
             _context.SaveChanges();
             return new NoContentResult();
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
+        {
+            var todo = _context.ToDoItems.FirstOrDefault(t => t.Id == id);
+            if (todo == null)
+            {
+                return NotFound();
+            }
+
+            _context.ToDoItems.Remove(todo);
+            _context.SaveChanges();
+            return new NoContentResult();
+        }
     }
 }
