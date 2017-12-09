@@ -51,5 +51,27 @@ namespace ToDoAPI.Controllers
 
             return CreatedAtRoute("GetToDo", new { id = item.Id }, item);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(long id, [FromBody] ToDoItem item)
+        {
+            if (item == null || item.Id != id)
+            {
+                return BadRequest();
+            }
+
+            var todo = _context.ToDoItems.FirstOrDefault(t => t.Id == id);
+            if (todo == null)
+            {
+                return NotFound();
+            }
+
+            todo.IsComplete = item.IsComplete;
+            todo.Name = item.Name;
+
+            _context.ToDoItems.Update(todo);
+            _context.SaveChanges();
+            return new NoContentResult();
+        }
     }
 }
