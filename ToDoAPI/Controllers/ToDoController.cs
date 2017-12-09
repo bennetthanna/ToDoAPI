@@ -37,5 +37,19 @@ namespace ToDoAPI.Controllers
             }
             return new ObjectResult(item);
         }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] ToDoItem item)
+        {
+            if (item == null)
+            {
+                return BadRequest();
+            }
+
+            _context.ToDoItems.Add(item);
+            _context.SaveChanges();
+
+            return CreatedAtRoute("GetToDo", new { id = item.Id }, item);
+        }
     }
 }
