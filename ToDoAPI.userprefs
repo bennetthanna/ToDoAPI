@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{CC5A3E47-780C-40AB-98A3-C196592D16B3}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoAPI/Models/ToDoItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoAPI/Models/ToDoContext.cs">
     <Files>
       <File FileName="ToDoAPI/Controllers/ValuesController.cs" Line="30" Column="10" />
-      <File FileName="ToDoAPI/Models/ToDoItem.cs" Line="1" Column="1" />
+      <File FileName="ToDoAPI/Models/ToDoItem.cs" Line="7" Column="44" />
+      <File FileName="ToDoAPI/Models/ToDoContext.cs" Line="1" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
